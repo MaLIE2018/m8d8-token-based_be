@@ -9,7 +9,8 @@ const authorSchema = new Schema({
   email: {type: String, required: true},
   password: {type: String, required: true},
   dateOfBirth:{type: Date, required: true},
-  blogPosts:[{type: Schema.Types.ObjectId, ref: "blogposts"}, {default:[]}]
+  blogPosts:[{type: Schema.Types.ObjectId, ref: "blogposts"}, {default:[]}],
+  refreshToken: {type: String, default: ""}
 }, {timestamps: true})
 
 
@@ -24,8 +25,9 @@ authorSchema.post("validate", function(error,doc, next){
 authorSchema.methods.toJSON = function(){
   const user = this
   const userObj = user.toObject()
-  delete userObj .password
-  delete userObj .__v
+  delete userObj.password
+  delete userObj.__v
+  delete userObj.refreshToken
   return userObj 
 }
 

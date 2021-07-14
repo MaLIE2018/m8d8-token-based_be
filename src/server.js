@@ -20,7 +20,7 @@ const corsOptions = {
     if(whiteList.indexOf(origin) !== -1 ){
       next(null,true)
     } else{
-      next(createError(400,{message: "Check your cors settings!"}))
+      next(createError(403,{message: "Check your cors settings!"}))
     }
   }
 }

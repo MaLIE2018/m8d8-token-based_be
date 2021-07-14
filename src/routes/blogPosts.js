@@ -13,8 +13,9 @@ import {v2 as cloudinary} from "cloudinary"
 const filePath = getFilePath("blogPosts.json")
 import {basename,extname} from "path"
 import q2m from "query-to-mongo"
+import { JWTMiddleware } from '../methods/auth/basic.js';
 
-bpRouter.get("/", async (req, res, next) =>{  
+bpRouter.get("/",JWTMiddleware, async (req, res, next) =>{  
       try { 
       const query = q2m(req.query)
       const total = await blogModel.countDocuments()
@@ -27,7 +28,7 @@ bpRouter.get("/", async (req, res, next) =>{
       next(err)
     }
 })
-bpRouter.get("/:id", async ( req, res, next) =>{
+bpRouter.get("/:id", JWTMiddleware,async ( req, res, next) =>{
   try {
     
     // let blogPosts = await getItems(filePath)
@@ -43,7 +44,7 @@ bpRouter.get("/:id", async ( req, res, next) =>{
     next(err)
   }
 })
-bpRouter.post("/",checkBlogPostSchema,checkValidationResult, async ( req, res, next) =>{
+bpRouter.post("/",JWTMiddleware,checkBlogPostSchema,checkValidationResult, async ( req, res, next) =>{
   try {
     // let blogPosts = await getItems(filePath)
     // let blogPost = {...req.body, _id: nanoid(), createdAt: new Date(),updatedAt: new Date()}
@@ -64,7 +65,7 @@ bpRouter.post("/",checkBlogPostSchema,checkValidationResult, async ( req, res, n
 })
 
 
-bpRouter.get('/:id/email', async (req, res, next) =>{
+bpRouter.get('/:id/email', JWTMiddleware,async (req, res, next) =>{
   try {
     // let blogPosts = await getItems(filePath)
     // let reqPost = blogPosts.find(a => a._id === req.params.id)
@@ -83,7 +84,7 @@ bpRouter.get('/:id/email', async (req, res, next) =>{
  
 })
 
-bpRouter.put("/:id",checkBlogPostSchema,checkValidationResult, async (req, res, next) =>{
+bpRouter.put("/:id",JWTMiddleware,checkBlogPostSchema,checkValidationResult, async (req, res, next) =>{
   try {
     // let blogPosts = await getItems(filePath)
     let blogPost = await blogModel.findByIdAndUpdate(req.params.id, req.body,{runValidators: true, new:true})
@@ -110,7 +111,7 @@ bpRouter.put("/:id",checkBlogPostSchema,checkValidationResult, async (req, res, 
     }
   }
 })
-bpRouter.delete("/:id", async (req, res, next) =>{
+bpRouter.delete("/:id", JWTMiddleware,async (req, res, next) =>{
   try {
     const blogPost = await blogModel.findByIdAndDelete(req.params.id)
     if(blogPost){
