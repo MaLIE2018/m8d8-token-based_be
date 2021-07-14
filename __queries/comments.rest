@@ -1,0 +1,15 @@
+GET http://localhost:3001/blogPosts/SERVERGENERATEDID2/comments
+
+
+
+####
+POST http://localhost:3001/blogPosts/SERVERGENERATEDID2/comments
+Content-Type: application/json
+
+{
+  "text": "Great BlogPost",
+  "user": "Max"
+}
+
+
+################################

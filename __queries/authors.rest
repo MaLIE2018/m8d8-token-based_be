@@ -1,0 +1,39 @@
+GET http://localhost:3001/authors
+
+################################
+
+POST http://localhost:3001/authors  
+Content-Type: application/json
+
+{
+  "name": "John",
+  "surname": "Doe",
+  "email": "email3@email.de",
+  "dateOfBirth": "2020-01-05",
+  "avatar": "https://ui-avatars.com/api/?name=John+Doe"
+}
+
+###
+
+DELETE http://localhost:3001/authors/
+
+
+###
+
+PUT http://localhost:3001/authors/
+Content-Type: application/json
+
+{
+  "name": "John",
+  "surname": "Doe",
+  "email": "email@email2.de",
+  "dateOfBirth": "2020-01-05"
+}
+
+###
+
+POST http://localhost:3001/authors/dsdfdfsfs/uploadAvatar
+Content-Disposition: form-data; name="authorAvatar" ; filename="DSC09736cut.jpg"
+Content-Type: image/jpg
+
+< C:\webdev\DSC09736cut.jpg

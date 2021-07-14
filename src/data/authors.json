@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Tobia",
+    "surname": "De Angelis",
+    "email": "email@email.de",
+    "dateOfBirth": "2020-01-05",
+    "avatar": "https://striveschool.ghost.io/content/images/2020/12/tobia_mymoji.jpg",
+    "blogPosts": []
+  },
+  {
+    "name": "Bri",
+    "surname": "Cho",
+    "email": "email@email.de",
+    "dateOfBirth": "2020-01-05",
+    "avatar": "https://striveschool.ghost.io/content/images/2020/11/FBBRRZy5_400x400.jpg",
+    "blogPosts": []
+  },
+  {
+    "name": "Max",
+    "surname": "Liebsch",
+    "email": "email@email.de",
+    "dateOfBirth": "2020-01-05",
+    "avatar": "https://ui-avatars.com/api/?name=John+Doe",
+    "blogPosts": []
+  },
+  {
+    "name": "John",
+    "surname": "Doe",
+    "email": "email2@email.de",
+    "dateOfBirth": "2020-01-05",
+    "avatar": "https://ui-avatars.com/api/?name=John+Doe",
+    "blogPosts": []
+  },
+  {
+    "name": "Michael",
+    "surname": "Johnson",
+    "email": "email3@email.de",
+    "dateOfBirth": "2020-01-05",
+    "avatar": "https://ui-avatars.com/api/?name=Micheal+Johnson",
+    "blogPosts": []
+  }
+]
